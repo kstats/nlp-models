@@ -69,6 +69,7 @@ class CopyNetDatasetReader(DatasetReader):
             return None, None
         line_parts = line.split('\t')
         if len(line_parts) != 2:
+            import pdb; pdb.set_trace()
             raise ConfigurationError("Invalid line format: %s (line number %d)" % (line, line_num + 1))
         source_sequence, target_sequence = line_parts
         return source_sequence, target_sequence

@@ -7,6 +7,9 @@
         "type": "single_id",
         "namespace": "source_tokens"
       },
+      "elmo": {
+        "type": "elmo_characters"
+      },
       "token_characters": {
         "type": "characters"
       }
@@ -26,10 +29,10 @@
         "target_tokens": ["@COPY@"]
     }
   },
-  "train_data_path": "data/greetings/train.tsv",
-  "validation_data_path": "data/greetings/validation.tsv",
+  "train_data_path": "data/coord/train.tsv",
+  "validation_data_path": "data/coord/validation.tsv",
   "model": {
-    "type": "copynet",
+    "type": "copynet_elmo",
     "source_embedder": {
       "tokens": {
         "type": "embedding",
@@ -37,24 +40,32 @@
         "embedding_dim": 25,
         "trainable": true
       },
+      "elmo": {
+        "type": "elmo_token_embedder",
+        "options_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
+        "weight_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
+        "do_layer_norm": false,
+        "dropout": 0.5
+      },
       "token_characters": {
         "type": "character_encoding",
         "embedding": {
-          "embedding_dim": 10
+          "embedding_dim": 200
         },
         "encoder": {
           "type": "lstm",
-          "input_size": 10,
+          "input_size": 200,
           "hidden_size": 10,
           "num_layers": 2,
           "dropout": 0,
           "bidirectional": true
         }
-      }
+      },
+
     },
     "encoder": {
       "type": "lstm",
-      "input_size": 45,
+      "input_size": 1069,
       "hidden_size": 100,
       "num_layers": 2,
       "dropout": 0,
