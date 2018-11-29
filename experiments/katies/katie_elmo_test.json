@@ -73,7 +73,7 @@
     },
     "attention": {
       "type": "bilinear",
-      "vector_dim": 500,
+      "vector_dim": 1000,
       "matrix_dim": 500
     },
     "target_embedding_dim": 200,
