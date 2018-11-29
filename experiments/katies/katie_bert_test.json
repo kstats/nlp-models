@@ -10,6 +10,10 @@
       /*"elmo": {
         "type": "elmo_characters"
       },*/
+      "bert":{
+        "type": "bert-pretrained",
+        "pretrained_model": "bert-base-uncased"
+      },
       "token_characters": {
         "type": "characters"
       }
@@ -44,7 +48,7 @@
         "type": "bert-pretrained",
         //"options_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
         //"weight_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
-        "pretrained_model_name": "bert-base-uncased",
+        "pretrained_model": "bert-base-uncased"
        // "dropout": 0.5
       },
       "token_characters": {
