@@ -20,7 +20,7 @@ class TokenSequenceAccuracy(Metric):
         self._correct_counts = 0.
         self._total_counts = 0.
 
-    @overrides
+    #@overrides
     def __call__(self,
                  predictions: List[List[str]],
                  gold_targets: List[List[str]]) -> None:
@@ -29,7 +29,7 @@ class TokenSequenceAccuracy(Metric):
             if predicted_tokens == gold_tokens:
                 self._correct_counts += 1
 
-    @overrides
+    #@overrides
     def get_metric(self, reset: bool = False) -> Dict[str, float]:
         if self._total_counts == 0:
             accuracy = 0.

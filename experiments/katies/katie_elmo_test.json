@@ -5,7 +5,7 @@
     "source_token_indexers": {
       "tokens": {
         "type": "single_id",
-        "namespace": "source_tokens"
+        "namespace": f
       },
       "elmo": {
         "type": "elmo_characters"
