@@ -3,20 +3,20 @@
     "target_namespace": "target_tokens",
     "type": "copynet_const",
     "source_token_indexers": {
-      /*"tokens": {
+      "tokens": {
         "type": "single_id",
         "namespace": "source_tokens"
-      },*/
+      },
       "elmo": {
         "type": "elmo_characters"
       },
       "const":{
         "type": "single_id",
         "namespace": "const_tokens"
-      }
-      /*"token_characters": {
+      },
+      "token_characters": {
         "type": "characters"
-      }*/
+      }
     },
     "target_token_indexers": {
       "tokens": {
@@ -38,12 +38,12 @@
   "model": {
     "type": "copynet_elmo",
     "source_embedder": {
-      /*"tokens": {
+      "tokens": {
         "type": "embedding",
         "vocab_namespace": "source_tokens",
         "embedding_dim": 200,
         "trainable": true
-      },*/
+      },
       "elmo": {
         "type": "elmo_token_embedder",
         "options_file": "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json",
@@ -56,8 +56,8 @@
         "vocab_namespace": "const_tokens",
         "embedding_dim": 32,
         "trainable": true
-      }
-      /*"token_characters": {
+      },
+      "token_characters": {
         "type": "character_encoding",
         "embedding": {
           "embedding_dim": 200
@@ -70,12 +70,12 @@
           "dropout": 0.5,
           "bidirectional": true
         }
-      },*/
+      },
 
     },
     "encoder": {
       "type": "lstm",
-      "input_size": 1056,
+      "input_size": 2256,
       "hidden_size": 500,
       "num_layers": 2,
       "dropout": 0,
@@ -111,7 +111,7 @@
       "eta_mul": 0.9
     },
     "num_epochs": 20,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "should_log_learning_rate": true,
     "should_log_parameter_statistics": false
   }

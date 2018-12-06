@@ -12,7 +12,9 @@
       },*/
       "bert":{
         "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
+        "pretrained_model": "bert-vocab",
+        "do_lowercase": false,
+        "use_starting_offsets": true
       },
       "const": {
         "type": "single_id",
@@ -50,7 +52,7 @@
       },*/
       "bert": {
         "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
+        "pretrained_model": "bert-weights"
         //"allow_unmatched_keys": true
        // "dropout": 0.5
       },
@@ -76,7 +78,11 @@
           "bidirectional": true
         }*/
 
-      "allow_unmatched_keys": true
+      "allow_unmatched_keys": true,
+     "embedder_to_indexer_map": {
+          "bert": ["bert", "bert-offsets"],
+          "token_characters": ["const"]
+      }
 
     },
     "encoder": {
