@@ -110,7 +110,7 @@
       "eta_mul": 0.9
     },
     "num_epochs": 20,
-    "cuda_device": 0,
+    "cuda_device": -1,
     "should_log_learning_rate": true,
     "should_log_parameter_statistics": false
   }
