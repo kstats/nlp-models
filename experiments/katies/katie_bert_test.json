@@ -12,7 +12,7 @@
       },*/
       "bert":{
         "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
+        "pretrained_model": "bert-large-uncased"
       },
       "token_characters": {
         "type": "characters"
@@ -38,18 +38,18 @@
   "model": {
     "type": "copynet_bert",
      "source_embedder": {
-      /*"tokens": {
+      "tokens": {
         "type": "embedding",
         "vocab_namespace": "source_tokens",
         "embedding_dim": 200,
         "trainable": true
-      },*/
+      },
       "bert": {
         "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
+        "pretrained_model": "bert-large-uncased"
         //"allow_unmatched_keys": true
        // "dropout": 0.5
-      },/*,
+      },
       "token_characters": {
         "type": "character_encoding",
         "embedding": {
@@ -62,14 +62,19 @@
           "num_layers": 2,
           "dropout": 0,
           "bidirectional": true
-        }*/
-
-      "allow_unmatched_keys": true
+        }
+      },
+      "allow_unmatched_keys": true,
+      "embedder_to_indexer_map": {
+              "tokens": ["tokens"],  // etc
+              "token_characters": ["token_characters"],
+              "bert": ["bert", "bert-offsets"]
+          }
 
     },
     "encoder": {
       "type": "lstm",
-      "input_size": 768,
+      "input_size": 1968,
       "hidden_size": 500,
       "num_layers": 2,
       "dropout": 0,
@@ -105,7 +110,7 @@
       "eta_mul": 0.9
     },
     "num_epochs": 20,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "should_log_learning_rate": true,
     "should_log_parameter_statistics": false
   }
